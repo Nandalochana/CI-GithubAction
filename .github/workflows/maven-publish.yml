@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Check out the repository
+      # Step 1: Checkout the code
       - name: Checkout code
         uses: actions/checkout@v2
 
@@ -26,7 +26,8 @@ jobs:
       - name: Set up Maven settings.xml
         run: |
           mkdir -p ~/.m2
-          echo "<settings>
+          echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+<settings>
   <servers>
     <server>
       <id>github</id>
