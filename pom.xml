@@ -2,12 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
     <artifactId>Test-Project</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
@@ -18,16 +18,16 @@
     <!-- Distribution Management -->
     <distributionManagement>
         <repository>
-            <id>github</id> 
-            <url>https://maven.pkg.github.com/Nandalochana/Test-Project</url>  
+            <id>github</id>
+            <url>https://maven.pkg.github.com/Nandalochana/Test-Project</url> <!-- Your GitHub repository's package URL -->
         </repository>
         <snapshotRepository>
             <id>github</id>
-            <url>https://maven.pkg.github.com/Nandalochana/Test-Project</url>
+            <url>https://maven.pkg.github.com/Nandalochana/Test-Project</url> <!-- Same URL for snapshot version -->
         </snapshotRepository>
     </distributionManagement>
 
-    <!-- Build Configuration -->
+    <!-- Plugin Configuration for Deploy -->
     <build>
         <plugins>
             <plugin>
