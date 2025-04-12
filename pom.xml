@@ -13,5 +13,15 @@
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    <distributionManagement>
+        <repository>
+            <id>github</id> <!-- This ID should match what you use in your GitHub Action -->
+            <url>https://maven.pkg.github.com/${project.groupId}/${project.artifactId}</url>
+        </repository>
+        <snapshotRepository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/${project.groupId}/${project.artifactId}</url>
+        </snapshotRepository>
+    </distributionManagement>
 
 </project>
