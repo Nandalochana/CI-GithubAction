@@ -16,16 +16,17 @@
     </properties>
 
     <!-- Distribution Management -->
-    <distributionManagement>
-        <repository>
-            <id>github</id>
-            <url>https://maven.pkg.github.com/Nandalochana/Test-Project</url> <!-- Your GitHub repository's package URL -->
-        </repository>
-        <snapshotRepository>
-            <id>github</id>
-            <url>https://maven.pkg.github.com/Nandalochana/Test-Project</url> <!-- Same URL for snapshot version -->
-        </snapshotRepository>
-    </distributionManagement>
+   <distributionManagement>
+  <repository>
+    <id>github</id>
+    <url>https://maven.pkg.github.com/Nandalochana/Test-Project</url>
+  </repository>
+  <snapshotRepository>
+    <id>github</id>
+    <url>https://maven.pkg.github.com/Nandalochana/Test-Project</url>
+  </snapshotRepository>
+</distributionManagement>
+
 
     <!-- Plugin Configuration for Deploy -->
     <build>
