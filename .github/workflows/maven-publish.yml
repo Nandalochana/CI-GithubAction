@@ -1,5 +1,6 @@
 name: Maven Deploy to GitHub Packages
 
+# Trigger the workflow on push to the main branch
 on:
   push:
     branches:
@@ -10,16 +11,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out repository
+      # Step 1: Check out the repository
+      - name: Checkout code
         uses: actions/checkout@v2
 
+      # Step 2: Set up JDK 21 (required for your project)
       - name: Set up JDK 21
         uses: actions/setup-java@v3
         with:
           java-version: '21'
           distribution: 'adoptopenjdk'
 
-      - name: Create settings.xml for Maven
+      # Step 3: Create settings.xml for Maven authentication to GitHub Packages
+      - name: Set up Maven settings.xml
         run: |
           mkdir -p ~/.m2
           echo "<settings>
@@ -32,5 +36,6 @@ jobs:
   </servers>
 </settings>" > ~/.m2/settings.xml
 
-      - name: Build and deploy
+      # Step 4: Build and deploy to GitHub Packages
+      - name: Build and deploy to GitHub Packages
         run: mvn clean deploy -DskipTests
