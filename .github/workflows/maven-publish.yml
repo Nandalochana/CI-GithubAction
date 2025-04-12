@@ -22,21 +22,7 @@ jobs:
           java-version: '21'
           distribution: 'adoptopenjdk'
 
-      # Step 3: Create settings.xml for Maven authentication to GitHub Packages
-      - name: Set up Maven settings.xml
-        run: |
-          mkdir -p ~/.m2
-          echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
-<settings>
-  <servers>
-    <server>
-      <id>github</id>
-      <username>${{ secrets.MY_GITHUB_USERNAME }}</username>
-      <password>${{ secrets.MY_GITHUB_TOKEN }}</password>
-    </server>
-  </servers>
-</settings>" > ~/.m2/settings.xml
-
-      # Step 4: Build and deploy to GitHub Packages
+      # Step 3: Build and deploy to GitHub Packages
       - name: Build and deploy to GitHub Packages
-        run: mvn clean deploy -DskipTests
+        run: |
+          mvn clean deploy -DskipTests -Dgithub.token=${{ secrets.GITHUB_TOKEN }}
